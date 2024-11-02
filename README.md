@@ -9,7 +9,7 @@
 * Для docker swarm (должен быть инициализирован swarm: `docker swarm init`)
 
 ```
-<p style: color=green>git clone https://github.com/skl256/grafana_stack_for_docker.git</p> && \
+git clone https://github.com/skl256/grafana_stack_for_docker.git && \
 cd grafana_stack_for_docker && \
 sudo mkdir -p /mnt/common_volume/swarm/grafana/config && \
 sudo mkdir -p /mnt/common_volume/grafana/{grafana-config,grafana-data,prometheus-data,loki-data,promtail-data} && \
