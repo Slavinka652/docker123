@@ -73,9 +73,12 @@ cd
 cd /mnt/common_volume/swarm/grafana/config 
 sudo vi prometheus.yaml 
 ```
-* В этом файле нужно изменить первый ip Адрес на тот, который мы должны были запомнить 
+* В этом файле нужно изменить первый ip Адрес на тот, который мы должны были запомнить targets: на exporter:9100,
   * Вставляем в первый targets 
   * После двоеточие цифры оставляем
+ 
+  * ![image](https://github.com/user-attachments/assets/65dca558-0d9b-4881-9470-8f55a7c92f9b)
+
 
 ### Grafana
 * переходим на сайт `localhost:3000`
@@ -161,7 +164,7 @@ sudo vi docker-compose.yaml
 
 ```
 curl -G 'http://localhost:8428/api/v1/query' --data-urlencode 'query=OILCOINT_metric1'
-cho -e "# TYPE OILCOINT_metric1 gauge\nOILCOINT_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus  
+echo -e "# TYPE OILCOINT_metric1 gauge\nOILCOINT_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus  
 
 ```
 (Значение 0 меняем на любое другое)
