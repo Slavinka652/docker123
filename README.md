@@ -5,7 +5,7 @@
 * Для docker compose
   
 ```
-git clone https://github.com/skl256/grafana_stack_for_docker.git && \
+git clone https://github.com/skl256/grafana_stack_for_docker.git && \   • Можно скачать git прямо из командной строки прописав Y
 cd grafana_stack_for_docker && \
 sudo mkdir -p /mnt/common_volume/swarm/grafana/config && \
 sudo mkdir -p /mnt/common_volume/grafana/{grafana-config,grafana-data,prometheus-data,loki-data,promtail-data} && \
@@ -13,10 +13,8 @@ sudo chown -R $(id -u):$(id -g) {/mnt/common_volume/swarm/grafana/config,/mnt/co
 touch /mnt/common_volume/grafana/grafana-config/grafana.ini && \
 cp config/* /mnt/common_volume/swarm/grafana/config/ && \
 mv grafana.yaml docker-compose.yaml && \
-docker compose up -d
+
 ```
-> [!IMPORTANT]
-> В последней команде отказываемся от установки
 
  * Устанавливаем последнею версию и утилитю docker-compose
 
@@ -31,6 +29,7 @@ docker-compose --version && \
 * Установка и настройка Docker
 
 ```
+sudo yum install wget
 sudo wget -P /etc/yum.repos.d/ https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum install docker-ce docker-ce
 sudo systemctl enable docker --now
@@ -163,8 +162,8 @@ sudo vi docker-compose.yaml
   * Переходим в терминал и пишем
 
 ```
+echo -e "# TYPE OILCOINT_metric1 gauge\nOILCOINT_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus
 curl -G 'http://localhost:8428/api/v1/query' --data-urlencode 'query=OILCOINT_metric1'
-echo -e "# TYPE OILCOINT_metric1 gauge\nOILCOINT_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus  
 
 ```
 (Значение 0 меняем на любое другое)
