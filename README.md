@@ -156,7 +156,7 @@ sudo vi docker-compose.yaml
 Сохраняем и выходим
 
 * Захом в connection
-  * там где мы писали `http:prometheus:9090` пишем  `http:victoriametrics:9090` И заменяем имя из "Prometheus-2" в "Vika"
+  * там где мы писали `http://prometheus:9090` пишем  `http:victoriametrics:9090` И заменяем имя из "Prometheus-2" в "Vika"
   * нажимаем на dashboards add visualition выбираем "Vika"
   * снизу меняем на "code"
   * Переходим в терминал и пишем
